@@ -23,9 +23,8 @@ export const App = () => {
 
       <h2 className={css.title}>Contacts</h2>
       <Filter />
-      {isLoading && <p>Loading contacts...</p>}
+      {isLoading ? <p>Loading contacts...</p> : <ContactList />}
       {error && <p>Data loading error</p>}
-      <ContactList />
     </div>
   );
 };
