@@ -26,11 +26,13 @@ const contactsSlice = createSlice({
     [fetchContacts.rejected]: handleRejected,
     [addContact.pending]: handlePending,
     [addContact.fulfilled](state, action) {
+      state.isLoading = false;
       state.contacts.push(action.payload);
     },
     [addContact.rejected]: handleRejected,
     [deleteContact.pending]: handlePending,
     [deleteContact.fulfilled](state, action) {
+      state.isLoading = false;
       const index = state.contacts.findIndex(
         contact => contact.id === action.payload.id
       );
